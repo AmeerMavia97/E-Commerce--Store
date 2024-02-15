@@ -11,8 +11,9 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { Button } from '@mui/material';
 
-export default function SingleCards({title , description  , image , prices , category}) {
+export default function SingleCards({title , description  , image , prices , category , Addtocard}) {
   const theme = useTheme();
+
 
   return (
     <Card sx={{ display: 'flex' , marginLeft: 5 , justifyContent: 'space-evenly', mr: 5, mt: 5}}>
@@ -36,7 +37,7 @@ export default function SingleCards({title , description  , image , prices , cat
           <Typography sx={{mt:5}} variant="subtitle1" color="text.secondary" component="div">
             {`Price: ${prices}`}
           </Typography>
-          <Button sx={{mt: 4}}>Add to Card</Button>
+          <Button onClick={Addtocard} sx={{mt: 4}}>Add to Card</Button>
           <Button sx={{mt: 4}}>Buy</Button>
         </CardContent>
        

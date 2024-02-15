@@ -7,7 +7,12 @@ export const ProductSlice = createSlice({
     },
     reducers:{
         ShowMore: (state , action)=>{
-            state.Products.push(action.payload)
+            state.Products.push({
+                title: action.payload.title,
+                description: action.payload.description,
+                image: action.payload.image,
+                price: action.payload.price,       
+            })
         }
     },
 })

@@ -4,20 +4,14 @@ import axios from 'axios'
 import Cards from '../../Components/Card'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { ShowMore } from '../../Config/Redux/Reducers/productSlice'
 
 const Allproduct = () => {
 
-    const [collection, setcollection] = useState([])
-   
+  const [collection, setcollection] = useState([])
+    
 
     const navigate = useNavigate()
-    // const dispatch = useDispatch();
-    // dispatch(
-    //     ShowMore({
-    //       Product: res.data,
-    //     })
-    //   );
+    
 
     useEffect(() => {
 

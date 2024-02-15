@@ -1,34 +1,45 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Typography,
-    Button,
-  } from "@material-tailwind/react";
-   
-  export function CardDefault() {
-    return (
-      <Card className="mt-6 w-96">
-        <CardHeader color="blue-gray" className="relative h-56">
-          <img
-            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-            alt="card-image"
-          />
-        </CardHeader>
-        <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
-            UI/UX Review Check
+import * as React from 'react';
+import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { Button } from '@mui/material';
+
+export default function AddtoCard({title , description  , image , prices , category , Addtocard}) {
+  const theme = useTheme();
+
+
+  return (
+    <Card sx={{ display: 'flex' , marginLeft: 5 , justifyContent: 'space-evenly', mr: 5, mt: 5}}>
+         <CardMedia
+        component="img"
+        sx={{ width: 250, height: 150 , mt: 5,   ml: 2 }}
+        image={image}
+        alt="Live from space album cover"
+      />
+      <Box sx={{ display: 'flex', flexDirection: 'column' , marginLeft: 10 , mt: 1,  }}>
+        <CardContent sx={{ flex: '1 0 auto' }}>
+          <Typography  component="div" variant="h5">
+            {title}
           </Typography>
-          <Typography>
-            The place is close to Barceloneta Beach and bus stop just 2 min by
-            walk and near to &quot;Naviglio&quot; where you can enjoy the main
-            night life in Barcelona.
+          <Typography sx={{mt:2}} variant="subtitle1" color="text.secondary" component="div">
+            {description}
           </Typography>
-        </CardBody>
-        <CardFooter className="pt-0">
-          <Button>Read More</Button>
-        </CardFooter>
-      </Card>
-    );
-  }
+          <Typography sx={{mt:0}} variant="subtitle1" color="text.secondary" component="div">
+            {`Price: ${prices}`} <br />
+            <Button variant='contained' sx={{mt: 1}}>Buy</Button>
+          </Typography>
+          
+        </CardContent>
+       
+      </Box>
+     
+    </Card>
+  );
+}
